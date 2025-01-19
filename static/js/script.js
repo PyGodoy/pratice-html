@@ -33,7 +33,7 @@ function toggleEmailErrors() {
 }
 
 function togglePasswordErrors() {
-    const password = document.getElementById('password').value;
+    const password = form.password().value
     
     form.passwordInvalidError().style.display = password ? "none" : "block"; // Se o password for vazio, mostra a mensagem de erro
 }
@@ -47,7 +47,7 @@ function toggleButtonsDisable() {
 }
 
 function isPasswordValid() { // Função que verifica a senha
-    const password = document.getElementById('password').value; // A constante password pega o valor do ID "password"
+    const password = form.password().value; // A constante password pega o valor do ID "password"
     if (!password) {
         return false; // se a senha for vazia retorna false
     }
