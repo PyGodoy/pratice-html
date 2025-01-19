@@ -1,0 +1,32 @@
+.login {
+    background: white;
+    border: none; /* Não exibe a borda */
+    color: rgb(45, 221, 111);
+
+}
+
+.register {
+    background: transparent;
+    color: white;
+    border: 1px solid white; /* Exibe a borda */
+}
+
+.recsenha {
+    background: transparent;
+    border: none;
+    color: white;
+}
+
+.error {
+    color: white;
+    background-color: red;
+    display: none;
+}
+
+button:active {
+    opacity: 0.8; /* Opacidade ao clicar */
+}
+
+button[disabled] {
+    opacity: 0.7;
+}

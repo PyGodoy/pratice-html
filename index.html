@@ -5,31 +5,35 @@
 <head>
     <title>Login - Controle de Gastos</title>
     <link rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" href="static/css/global.css">
     <script src="static/js/script.js"></script>
+    <script src="static/js/validations.js"></script>
 </head>
 
 <body>
     <form>
-        <div>
+        <div class="form-field">
         <div><label>Email</label></div>
-        <input type="email" name="email" id="email" onchange="validateFields()" placeholder="Seu@email.com">
+        <input type="email" name="email" id="email" onchange="onChangeEmail()" placeholder="Seu@email.com">
         </div>
+        <div class="error" id="email-required-error">Email Obrigatório</div>
+        <div class="error" id="email-invalid-error">Email Inválido</div>
         
         <div>
         <div><label>Senha</label></div>
-        <input type="password" name="password" id="password" onchange="validateFields()" placeholder="Senha">
+        <input type="password" name="password" id="password" onchange="onChangePassword()" placeholder="Senha">
         </div>
-        
+        <div class="error" id="password-invalid-error">Senha Obrigatória</div>
         <div>
             <button type="button" class="recsenha" id="recover-password-button" disabled>Recuperar Senha</button>
             </div>
 
         <div>
-        <button type="button" class="login" id="login-button">Entrar</button>
+        <button type="button" class="login" id="login-button" disabled onclick="login()">Entrar</button>
         </div>
         
         <div>
-        <button type="button" class="register">Registrar</button>
+        <button type="button" class="register" onclick="register()">Registrar</button>
         </div>
 
     </form>
