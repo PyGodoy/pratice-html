@@ -1,0 +1,45 @@
+body {
+    background: rgb(45, 221, 111);
+    display: flex; 
+    justify-content: center; /* Centraliza Horizontalmente */
+    align-items: center;  /* Centraliza Verticalmente */
+    height: 100vh; /* Altura da tela de visualização */
+}
+
+form {
+    width: 300px;
+}
+
+input, button {
+    padding: 10px; /* Espaço inteiror */
+    margin-bottom: 10px; /* Espaço exterior do bottom */
+    width: -webkit-fill-available ; /* Preenche o espaço disponível */
+}
+
+button {
+    cursor: pointer; /* Mostra o cursor da seta */
+    width: -webkit-fill-available ; /* Preenche o espaço disponível */
+}
+
+button:active {
+    opacity: 0.8; /* Opacidade ao clicar */
+}
+
+.login {
+    background: white;
+    border: none; /* Não exibe a borda */
+    color: rgb(45, 221, 111);
+
+}
+
+.register {
+    background: transparent;
+    color: white;
+    border: 1px solid white; /* Exibe a borda */
+}
+
+.recsenha {
+    background: transparent;
+    border: none;
+    color: white;
+}
