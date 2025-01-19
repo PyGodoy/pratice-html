@@ -1,42 +1,26 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // Seleção de elementos
-    const navButtons = document.querySelectorAll('.nav-btn');
-    const menuSections = document.querySelectorAll('.menu-section');
+function validateFields() {
+    const emailValid = isEmailValid(); // A constante emailValid armazena se o email é valido ou não pela função isEmailValid()
+    document.getElementById("recover-password-button").disabled= !emailValid; // O botão de Recuperar Senha ficara desabilitado se o email for inválido
+    const passwordValid = isPasswordValid(); // a constante passwordValid armazena se o email é valido ou não pela função isPasswordValid
+    document.getElementById("login-button").disabled = !emailValid || !passwordValid // O botão de login ficara desabilitado se o email for invalido ou a senha
+}
 
-    // Função para trocar de seção
-    function switchSection(sectionId) {
-        // Remove a classe active de todas as seções e botões
-        menuSections.forEach(section => section.classList.remove('active'));
-        navButtons.forEach(btn => btn.classList.remove('active'));
-
-        // Adiciona a classe active na seção e botão selecionados
-        document.getElementById(sectionId).classList.add('active');
-        document.querySelector(`[data-section="${sectionId}"]`).classList.add('active');
+function isEmailValid() { //função que verifica se o email é valido
+    const email = document.getElementById("email").value; // A constante email pega o valor do ID "email"
+    if (!email) {
+        return false; // Se o email for vazio, retorna falso
     }
+    return validateEmail(email); // se o email não for vazio ele chama a função de validação de email no validateEmail(email)
+}
 
-    // Adiciona evento de clique aos botões de navegação
-    navButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            const sectionId = button.getAttribute('data-section');
-            switchSection(sectionId);
-        });
-    }); 
+function isPasswordValid() { // Função que verifica a senha
+    const password = document.getElementById('password').value; // A constante password pega o valor do ID "password"
+    if (!password) {
+        return false; // se a senha for vazia retorna false
+    }
+    return true; // se a senha não for vazia retorna true
+}
 
-    // Efeito de parallax suave no header
-    const cover = document.querySelector('.cover');
-    window.addEventListener('scroll', () => {
-        const scrolled = window.pageYOffset;
-        cover.style.backgroundPositionY = `${scrolled * 0.5}px`;
-    });
-
-    // Animação suave ao rolar para as seções
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            const section = document.querySelector(this.getAttribute('href'));
-            section.scrollIntoView({
-                behavior: 'smooth'
-            });
-        });
-    });
-});
+function validateEmail(email) { // Função que verifica se o email é valido
+    return /\S+@\S+\.\S+/.test(email) // A função test() verifica se o email atende a um determinado padrão
+    };

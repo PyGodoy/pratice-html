@@ -5,26 +5,27 @@
 <head>
     <title>Login - Controle de Gastos</title>
     <link rel="stylesheet" href="static/css/style.css">
+    <script src="static/js/script.js"></script>
 </head>
 
 <body>
     <form>
         <div>
         <div><label>Email</label></div>
-        <input type="email" name="email" placeholder="Seu@email.com">
+        <input type="email" name="email" id="email" onchange="validateFields()" placeholder="Seu@email.com">
         </div>
         
         <div>
         <div><label>Senha</label></div>
-        <input type="password" name="password" placeholder="Senha">
+        <input type="password" name="password" id="password" onchange="validateFields()" placeholder="Senha">
         </div>
         
         <div>
-            <button type="button" class="recsenha">Recuperar Senha</button>
+            <button type="button" class="recsenha" id="recover-password-button" disabled>Recuperar Senha</button>
             </div>
 
         <div>
-        <button type="button" class="login">Entrar</button>
+        <button type="button" class="login" id="login-button">Entrar</button>
         </div>
         
         <div>
