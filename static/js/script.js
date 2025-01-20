@@ -9,11 +9,29 @@ function onChangePassword() {
 }
 
 function login() {
-    window.location.href = "pages/home/home.html"; // Ao clicar em Entrar vai para a pagina home.html
+    showLoading();
+    firebase.auth().signInWithEmailAndPassword(
+        form.email().value,form.password().value
+    ).then(response => {
+        hideLoading();
+        window.location.href = "pages/home/home.html" // Ao clicar em Entrar vai para a pagina home.html
+    }).catch(error => {
+        hideLoading();
+        alert(getErrorMessage(error));
+        console.log('error', error)
+    })
     
 }
 
+function getErrorMessage(error) {
+    if (error.code == "auth/invalid-credential") {
+        return "Usuário não encontrado";
+    }
+    return error.message;
+}
+
 function register() {
+    showLoading();
     window.location.href = "pages/register/register.html"; // Ao clicar em Registrar vai para a pagina register.html
 }
 

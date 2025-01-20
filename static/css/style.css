@@ -1,13 +1,10 @@
 body {
     background: rgb(45, 221, 111);
-    display: flex; 
-    justify-content: center; /* Centraliza Horizontalmente */
-    align-items: center;  /* Centraliza Verticalmente */
     height: 100vh; /* Altura da tela de visualização */
 }
 
 form {
-    width: 300px;
+    width: 300px; /* Largura da caixa de formulário */ 
 }
 
 input, button {
@@ -18,7 +15,7 @@ input, button {
 button {
     cursor: pointer; /* Mostra o cursor da seta */
     width: -webkit-fill-available ; /* Preenche o espaço disponível */
-    margin-bottom: 10px;
+    margin-bottom: 10px; /* Espaço entre botões */
 }
 
 .form-field {

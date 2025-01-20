@@ -8,9 +8,10 @@
     <link rel="stylesheet" href="static/css/global.css">
     <script src="static/js/script.js"></script>
     <script src="static/js/validations.js"></script>
+    <script src="static/js/loading.js"></script>
 </head>
 
-<body>
+<body class="centralize">
     <form>
         <div class="form-field">
         <div><label>Email</label></div>
@@ -38,5 +39,22 @@
 
     </form>
 </body>
+
+
+
+<script src="https://www.gstatic.com/firebasejs/11.2.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/11.2.0/firebase-auth-compat.js"></script>
+<script>
+    const firebaseConfig = {
+    apiKey: "AIzaSyCRyy7SOmbSbS6Q0KttqAUo8Pln1E4diD0",
+    authDomain: "controle-de-gastos-cb21b.firebaseapp.com",
+    projectId: "controle-de-gastos-cb21b",
+    storageBucket: "controle-de-gastos-cb21b.firebasestorage.app",
+    messagingSenderId: "316331551784",
+    appId: "1:316331551784:web:977db0b215e9598e78d91d"
+  };
+  firebase.initializeApp(firebaseConfig);
+
+</script>
 
 </html>
