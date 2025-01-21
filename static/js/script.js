@@ -25,7 +25,7 @@ function login() {
 
 function getErrorMessage(error) {
     if (error.code == "auth/invalid-credential") {
-        return "Usuário não encontrado";
+        return "Usuário ou senha inválidos";
     }
     return error.message;
 }
@@ -75,6 +75,19 @@ function isPasswordValid() { // Função que verifica a senha
 function validateEmail(email) { // Função que verifica se o email é valido
     return /\S+@\S+\.\S+/.test(email) // A função test() verifica se o email atende a um determinado padrão
     };
+
+
+function recoverPassword() {
+    showLoading();
+    firebase.auth().sendPasswordResetEmail(form.email().value).then(() => {
+        hideLoading();
+        alert("Email de recuperação de senha enviado com sucesso!");
+    }).catch(error => {
+        hideLoading();
+        alert(getErrorMessage(error));
+    });
+    
+}
 
 const form = {
     email: () => document.getElementById('email'),
