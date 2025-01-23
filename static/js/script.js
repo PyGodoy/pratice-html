@@ -6,6 +6,7 @@ function onChangeEmail() {
 function onChangePassword() {
     toggleButtonsDisable(); 
     togglePasswordErrors();
+
 }
 
 function login() {
@@ -89,9 +90,36 @@ function recoverPassword() {
     
 }
 
+// PARTE TELA DE REGISTRO //
+
+function passwordMinLenght() {
+    const password = form.password().value;
+    form.passwordMinLenght().style.display = password ? "none" : "block";
+}
+
+function emailIncorrect() {
+    const email = form.email().value;
+    form.emailInvalidError().style.display = validateEmail(email) ? "none" : "block";
+
+}
+
+function passwordNotMatch() {
+    const password = form.password().value;
+    const confirmPassword = form.confirmPassword().value;
+
+    if (password != confirmPassword) {
+        form.passwordIncorrect().value.style.display = confirmPassword || password ? "none" : "block";
+    }
+    return true;
+
+    }
+
 const form = {
     email: () => document.getElementById('email'),
     password: () => document.getElementById('password'),
+    confirmPassword: () => document.getElementById("confirmPassword"),
+    passwordMinLenght: () => document.getElementById("password-min-length-error"),
+    passwordIncorrect: () => document.getElementById("password-required-error"),
     loginButton: () => document.getElementById('login-button'),
     recoverPasswordButton: () => document.getElementById('recover-password-button'),
     emailRequiredError: () => document.getElementById('email-required-error'),
