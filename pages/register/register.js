@@ -9,7 +9,7 @@ function onChangePassword() {
 
 }
 
-function onConfirmPassword() {
+function onConfirmPassword() { 
     const password = form.password().value;
     const confirmPassword = form.confirmPassword().value;
     form.passwordNotMatch().style.display = password != confirmPassword ? "block" : "none";
@@ -33,7 +33,7 @@ function isPasswordMinLenghtValid() { // Função que verifica a senha
     return true; // se a senha não for vazia retorna true
 }
 
-function isConfirmPasswordValid() {
+function isConfirmPasswordValid() { // Função que verifica a senha
     const confirmPassword = form.confirmPassword().value;
     const password = form.password().value;
     if (confirmPassword != password) {
@@ -44,25 +44,25 @@ function isConfirmPasswordValid() {
 
 }
 
-function toggleEmailErrors() {
+function toggleEmailErrors() { // Função que verifica se o campo email está correto
     const email = form.email().value;
     form.emailRequiredError().style.display = email ? "none" : "block";
     form.emailInvalidError().style.display = validateEmail(email) ? "none" : "block";
 }
 
-function togglePasswordErrors() {
+function togglePasswordErrors() { // Função que verifica se o campo senha está correto
     const password = form.password().value;
     form.passwordRequiredError().style.display = isPasswordRequiredValid(password) ? "none" : "block";
     form.passwordMinLenght().style.display = password.length < 6 ? "block" : "none";
 }
 
-function toggleButtonsDisable() {
+function toggleButtonsDisable() { // Função que verifica se os botões estão desabilitados
     
     form.registerButton().disabled = !isFormValid();
 
 }
 
-function isFormValid() {
+function isFormValid() { // Função que verifica se o formulário está válido
     const email = form.email().value;
 
     if (!email || !validateEmail(email)) {
@@ -81,7 +81,7 @@ function isFormValid() {
     return true
 }
 
-const form = {
+const form = { // Objetos que representam os campos do formulário
     registerButton: () => document.getElementById("register"),
     email: () => document.getElementById("email"),
     password: () => document.getElementById("password"),
